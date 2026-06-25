@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Registration Form</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        width: 350px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #2a5298;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background: #2a5298;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background: #1e3c72;
+    }
+
+    .result {
+        margin-top: 15px;
+        font-size: 14px;
+        color: green;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Student Registration</h2>
+
+    <input type="text" id="name" placeholder="Enter Name">
+    <input type="text" id="roll" placeholder="Enter Roll Number">
+    <input type="text" id="college" placeholder="College Name">
+
+    <select id="dept">
+        <option value="">Select Department</option>
+        <option>EEE</option>
+        <option>ECE</option>
+        <option>CSE</option>
+        <option>MECH</option>
+        <option>CIVIL</option>
+    </select>
+
+    <input type="number" id="cgpa" placeholder="CGPA (0 - 10)">
+    <input type="number" id="gpa" placeholder="GPA">
+    <input type="text" id="phone" placeholder="Phone Number">
+
+    <button onclick="submitForm()">Register</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+function submitForm() {
+    let name = document.getElementById("name").value;
+    let roll = document.getElementById("roll").value;
+    let college = document.getElementById("college").value;
+    let dept = document.getElementById("dept").value;
+    let cgpa = document.getElementById("cgpa").value;
+    let gpa = document.getElementById("gpa").value;
+    let phone = document.getElementById("phone").value;
+
+    if(!name || !roll || !college || !dept || !cgpa || !gpa || !phone){
+        document.getElementById("result").innerHTML = "❌ Fill all fields first!";
+        return;
+    }
+
+    document.getElementById("result").innerHTML =
+        "✅ Registered Successfully!<br>" +
+        "Name: " + name + "<br>" +
+        "Roll: " + roll + "<br>" +
+        "College: " + college + "<br>" +
+        "Dept: " + dept + "<br>" +
+        "CGPA: " + cgpa + "<br>" +
+        "GPA: " + gpa + "<br>" +
+        "Phone: " + phone;
+}
+</script>
+
+</body>
+</html>
